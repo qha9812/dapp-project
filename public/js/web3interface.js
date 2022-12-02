@@ -4,8 +4,6 @@ let user;
 const mEthPrice = 1600;
 const currentYear = 2022;
 
-const abi = []; // 대괄호까지 지우고 abi 복사 붙여넣기
-
 const contract_address = ""; // 따옴표 안에 주소값 복사 붙여넣기
 
 const logIn = async () => {
@@ -24,6 +22,12 @@ const logIn = async () => {
 
   _updateRooms();
   _updateRents();
+}
+
+const json2abi = async (path) => {
+  const response = await fetch(path);
+  const abi = await response.json();
+  return abi;
 }
 
 const metamaskRequest = async () => {
@@ -77,10 +81,9 @@ const _updateRents = () => {
   displayRoomHistory();
 }
 
-let RoomShare;
-
-const getRoomShareContract = () => {
-  RoomShare = new web3.eth.Contract(abi,contract_address)
+const getRoomShareContract = async () => {
+  const abi = await json2abi("./abi.json");
+  const RoomShare = new web3.eth.Contract(abi,contract_address)
   return RoomShare
 }
 
