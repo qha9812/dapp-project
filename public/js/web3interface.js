@@ -271,6 +271,7 @@ const _recommendDate = async (roomId, checkInDate, checkOutDate) => {
   // Room ID에 해당하는 방이 체크인하려는 날짜에 대여되었다면,
   // 기존에 대여된 날짜가 언제부터 언제까지인지 알림 팝업으로 표시한다.
   // checkInDate <= 대여된 체크인 날짜 , 대여된 체크아웃 날짜 < checkOutDate
+  // 체크아웃 날짜에는 퇴실하여야하며, 해당일까지 숙박을 이용하려면 체크아웃날짜는 그 다음날로 변경하여야한다.
   // 주어진 헬퍼 함수 dateFromDay 를 이용한다.
 }
 

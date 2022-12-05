@@ -51,9 +51,11 @@ interface IRoomShare {
 
     // optional 1
     // caution: 방의 소유자를 먼저 체크해야한다.
+    // isActive 필드만 변경한다.
     function markRoomAsInactive(uint256 _roomId) external;
 
     // optional 2
     // caution: 변수의 저장공간에 유의한다.
+    // 첫날부터 시작해 함수를 실행한 날짜까지 isRented 필드의 초기화를 진행한다.
     function initializeRoomShare(uint _roomId, uint day) external;
 }
