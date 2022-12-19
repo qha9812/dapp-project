@@ -20,6 +20,7 @@ interface IRoomShare {
         address renter;
     }
 
+
     event NewRoom (
         uint256 indexed roomId
     );
@@ -28,9 +29,9 @@ interface IRoomShare {
         uint256 indexed rentId
     );
     event Transfer(
-      address sender, 
-      address recipient, 
-      uint amount
+    address sender,
+    address recipient,
+    uint amount
     );
 
 
@@ -38,16 +39,16 @@ interface IRoomShare {
 
     function getRoomRentHistory(uint _roomId) external view returns(Rent[] memory);
 
-    
+
     function shareRoom( string calldata name, string calldata location, uint price ) external;
 
     function rentRoom(uint _roomId, uint checkInDate, uint checkOutDate) payable external;
-        function _createRent(uint256 _roomId, uint256 checkInDate, uint256 checkoutDate) external ; // internal
-        function _sendFunds (address owner, uint256 value) external ; // internal
+        //function _createRent(uint256 _roomId, uint256 checkInDate, uint256 checkoutDate) external ; // internal
+        //function _sendFunds (address owner, uint256 value) external ; // internal
 
 
     function recommendDate(uint _roomId, uint checkInDate, uint checkOutDate) external view returns(uint[2] memory);
-    
+
 
     // optional 1
     // caution: 방의 소유자를 먼저 체크해야한다.
